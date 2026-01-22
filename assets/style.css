@@ -1,0 +1,464 @@
+/**
+ * Service Blueprint CSS
+ * Tested patterns for generating consistent service blueprints
+ * 
+ * Usage: <link rel="stylesheet" href="assets/style.css">
+ */
+
+/* ========== BASE RESET ========== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #fff;
+    padding: 30px 40px;
+    color: #333;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+h1 span {
+    font-weight: 400;
+    color: #555;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 11px;
+    margin-bottom: 25px;
+}
+
+/* ========== BLUEPRINT GRID ========== */
+
+.blueprint {
+    display: grid;
+    grid-template-columns: 100px repeat(6, 1fr);
+    gap: 0;
+    position: relative;
+}
+
+/* Column variants */
+.blueprint-3col {
+    grid-template-columns: 100px repeat(3, 1fr);
+}
+
+.blueprint-4col {
+    grid-template-columns: 100px repeat(4, 1fr);
+}
+
+.blueprint-5col {
+    grid-template-columns: 100px repeat(5, 1fr);
+}
+
+.blueprint-7col {
+    grid-template-columns: 100px repeat(7, 1fr);
+}
+
+.blueprint-8col {
+    grid-template-columns: 100px repeat(8, 1fr);
+}
+
+/* ========== LAYER LABELS ========== */
+
+.layer-label {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #5a9aad;
+    padding: 10px 10px 10px 0;
+    text-align: right;
+    line-height: 1.4;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* ========== PHASE HEADERS ========== */
+
+.phase-title {
+    font-size: 10px;
+    font-weight: 600;
+    color: #2a6a7a;
+    text-align: center;
+    padding: 8px 4px;
+    background: #e4f0f3;
+    border-bottom: 2px solid #5a9aad;
+}
+
+.phase-title.empty {
+    background: transparent;
+    border: none;
+}
+
+/* ========== CELLS ========== */
+
+.cell {
+    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70px;
+    position: relative;
+    border-right: 1px dotted #e8e8e8;
+}
+
+.cell:last-child {
+    border-right: none;
+}
+
+/* ========== TIME ROW ========== */
+
+.time-cell {
+    font-size: 8px;
+    color: #666;
+    text-align: center;
+    padding: 6px 4px;
+    font-style: italic;
+    line-height: 1.4;
+    border-right: 1px dotted #e8e8e8;
+}
+
+.time-cell:last-child {
+    border-right: none;
+}
+
+/* ========== BOXES ========== */
+
+.box {
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 9px;
+    line-height: 1.3;
+    text-align: center;
+    margin: 2px 0;
+    max-width: 125px;
+    position: relative;
+}
+
+/* Customer-facing (yellow) */
+.box.customer,
+.box.frontstage {
+    background: #fff9e6;
+    border-color: #c9a227;
+}
+
+/* Internal (white) */
+.box.backstage {
+    background: #fff;
+    border-color: #aaa;
+}
+
+/* Support (grey) */
+.box.support {
+    background: #f3f3f3;
+    border-color: #999;
+}
+
+/* Evidence (light grey) */
+.box.evidence {
+    background: #fafafa;
+    border-color: #ccc;
+    font-size: 8px;
+    padding: 3px 6px;
+}
+
+/* Muted/inactive (dashed) */
+.box.muted {
+    background: #f5f5f5;
+    border-style: dashed;
+    color: #666;
+}
+
+/* ========== DOMAIN BADGES ========== */
+
+.badge {
+    font-size: 6px;
+    font-weight: 700;
+    padding: 1px 3px;
+    border-radius: 2px;
+    margin-left: 2px;
+    vertical-align: middle;
+}
+
+/* Default variant colours */
+.badge.variant-a,
+.badge.sk {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badge.variant-b,
+.badge.ex {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* Additional variants if needed */
+.badge.variant-c {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge.variant-d {
+    background: #fce7f3;
+    color: #9d174d;
+}
+
+/* ========== MARKERS ========== */
+
+/* Moment of truth (red) */
+.mot {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 10px;
+    height: 10px;
+    background: #ef4444;
+    border-radius: 50%;
+    font-size: 7px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Failure point (dark yellow) */
+.fail {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 10px;
+    height: 10px;
+    background: #8b6914;
+    border-radius: 50%;
+    font-size: 6px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* ========== DIVIDER LINES ========== */
+
+.divider {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    height: 20px;
+    position: relative;
+}
+
+.divider-label {
+    width: 100px;
+    font-size: 8px;
+    color: #888;
+    font-style: italic;
+    text-align: right;
+    padding-right: 10px;
+    flex-shrink: 0;
+}
+
+.divider-line {
+    flex: 1;
+    height: 0;
+    border-top: 1.5px dashed #aaa;
+}
+
+/* ========== HORIZONTAL ARROWS ========== */
+
+.h-arrow {
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.h-arrow .stem {
+    width: 10px;
+    height: 0;
+    border-top: 1.5px solid #999;
+}
+
+.h-arrow .head {
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid #999;
+}
+
+/* Double-headed arrow (negotiation) */
+.h-arrow.double .head-left {
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 6px solid #999;
+}
+
+/* Hide arrow on last cell */
+.cell:last-child .h-arrow {
+    display: none;
+}
+
+/* ========== VERTICAL ARROWS ========== */
+
+.v-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.v-arrow .stem {
+    width: 0;
+    height: 12px;
+    border-left: 1.5px solid #999;
+}
+
+.v-arrow .head {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid #999;
+}
+
+/* ========== LEGEND ========== */
+
+.legend {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    font-size: 9px;
+}
+
+.legend-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.legend-section h4 {
+    font-size: 9px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ddd;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #555;
+}
+
+.legend-swatch {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #bbb;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.legend-arrow {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.legend-arrow .stem {
+    width: 12px;
+    height: 0;
+    border-top: 1.5px solid #999;
+}
+
+.legend-arrow .head {
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 5px solid #999;
+}
+
+.legend-arrow .head-left {
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-right: 5px solid #999;
+}
+
+.legend-mot {
+    width: 10px;
+    height: 10px;
+    background: #ef4444;
+    border-radius: 50%;
+    font-size: 6px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.legend-fail {
+    width: 10px;
+    height: 10px;
+    background: #8b6914;
+    border-radius: 50%;
+    font-size: 6px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1200px) {
+    .blueprint {
+        font-size: 8px;
+    }
+    
+    .box {
+        padding: 4px 6px;
+        font-size: 8px;
+    }
+    
+    .legend {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media print {
+    body {
+        padding: 20px;
+    }
+    
+    .legend {
+        break-inside: avoid;
+    }
+}

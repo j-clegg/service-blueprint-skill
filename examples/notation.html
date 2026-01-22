@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Blueprint - Notation Reference</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .reference-card {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 20px;
+        }
+        
+        .reference-card h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .demo-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 12px 0;
+            padding: 10px;
+            background: #fff;
+            border-radius: 4px;
+        }
+        
+        .demo-label {
+            font-size: 10px;
+            color: #666;
+            min-width: 100px;
+        }
+        
+        .demo-visual {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .arrow-demo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .arrow-demo .stem-h {
+            width: 30px;
+            height: 0;
+            border-top: 1.5px solid #999;
+        }
+        
+        .arrow-demo .head-r {
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 8px solid #999;
+        }
+        
+        .arrow-demo .head-l {
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-right: 8px solid #999;
+        }
+        
+        .arrow-demo-v {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .arrow-demo-v .stem-v {
+            width: 0;
+            height: 20px;
+            border-left: 1.5px solid #999;
+        }
+        
+        .arrow-demo-v .head-d {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 8px solid #999;
+        }
+        
+        .marker-demo {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .marker-demo.mot { background: #ef4444; }
+        .marker-demo.fail { background: #8b6914; }
+        
+        .box-demo {
+            padding: 8px 12px;
+            border-radius: 3px;
+            font-size: 10px;
+            border: 1px solid;
+        }
+        
+        .line-demo {
+            width: 100%;
+            height: 0;
+            border-top: 1.5px dashed #aaa;
+            margin: 5px 0;
+        }
+        
+        .badge-demo {
+            font-size: 8px;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+        
+        .usage-note {
+            font-size: 9px;
+            color: #777;
+            margin-top: 8px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Service Blueprint: <span>Notation Reference</span></h1>
+    <p class="subtitle">Visual guide to all blueprint elements and their meanings</p>
+    
+    <div class="reference-grid">
+        
+        <!-- Arrows -->
+        <div class="reference-card">
+            <h3>Arrows</h3>
+            
+            <div class="demo-row">
+                <div class="demo-label">Single (handoff)</div>
+                <div class="demo-visual">
+                    <div class="arrow-demo">
+                        <div class="stem-h"></div>
+                        <div class="head-r"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="usage-note">One-way transfer of work or information</p>
+            
+            <div class="demo-row">
+                <div class="demo-label">Double (negotiate)</div>
+                <div class="demo-visual">
+                    <div class="arrow-demo">
+                        <div class="head-l"></div>
+                        <div class="stem-h"></div>
+                        <div class="head-r"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="usage-note">Back-and-forth agreement required</p>
+            
+            <div class="demo-row">
+                <div class="demo-label">Vertical (connect)</div>
+                <div class="demo-visual">
+                    <div class="arrow-demo-v">
+                        <div class="stem-v"></div>
+                        <div class="head-d"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="usage-note">Connects layers below divider lines</p>
+        </div>
+        
+        <!-- Markers -->
+        <div class="reference-card">
+            <h3>Markers</h3>
+            
+            <div class="demo-row">
+                <div class="demo-label">Moment of truth</div>
+                <div class="demo-visual">
+                    <div class="marker-demo mot">★</div>
+                </div>
+            </div>
+            <p class="usage-note">Customer perception of quality is formed here</p>
+            
+            <div class="demo-row">
+                <div class="demo-label">Failure point</div>
+                <div class="demo-visual">
+                    <div class="marker-demo fail">!</div>
+                </div>
+            </div>
+            <p class="usage-note">Dependency or risk that could cause breakdown</p>
+            
+            <div class="demo-row">
+                <div class="demo-label">Position</div>
+                <div class="demo-visual">
+                    <div style="position:relative;padding:8px 16px;background:#fff9e6;border:1px solid #c9a227;border-radius:3px;font-size:10px;">
+                        Action
+                        <div style="position:absolute;top:-4px;right:-4px;width:10px;height:10px;background:#ef4444;border-radius:50%;font-size:6px;color:#fff;display:flex;align-items:center;justify-content:center;">★</div>
+                        <div style="position:absolute;top:-4px;left:-4px;width:10px;height:10px;background:#8b6914;border-radius:50%;font-size:6px;color:#fff;display:flex;align-items:center;justify-content:center;">!</div>
+                    </div>
+                </div>
+            </div>
+            <p class="usage-note">★ top-right, ! top-left</p>
+        </div>
+        
+        <!-- Lines -->
+        <div class="reference-card">
+            <h3>Divider Lines</h3>
+            
+            <div class="demo-row" style="flex-direction:column;align-items:flex-start;">
+                <div class="demo-label">Line of Interaction</div>
+                <div class="line-demo"></div>
+            </div>
+            <p class="usage-note">Customer ↔ Organisation boundary</p>
+            
+            <div class="demo-row" style="flex-direction:column;align-items:flex-start;">
+                <div class="demo-label">Line of Visibility</div>
+                <div class="line-demo"></div>
+            </div>
+            <p class="usage-note">What customer can/cannot see</p>
+            
+            <div class="demo-row" style="flex-direction:column;align-items:flex-start;">
+                <div class="demo-label">Line of Internal Interaction</div>
+                <div class="line-demo"></div>
+            </div>
+            <p class="usage-note">Contact staff ↔ Support staff</p>
+        </div>
+        
+        <!-- Box Styles -->
+        <div class="reference-card">
+            <h3>Box Styles (Lanes)</h3>
+            
+            <div class="demo-row">
+                <div class="demo-label">Evidence</div>
+                <div class="box-demo" style="background:#fafafa;border-color:#ccc;font-size:9px;">Touchpoint</div>
+            </div>
+            
+            <div class="demo-row">
+                <div class="demo-label">Customer</div>
+                <div class="box-demo" style="background:#fff9e6;border-color:#c9a227;">Action</div>
+            </div>
+            
+            <div class="demo-row">
+                <div class="demo-label">Frontstage</div>
+                <div class="box-demo" style="background:#fff9e6;border-color:#c9a227;">Action</div>
+            </div>
+            
+            <div class="demo-row">
+                <div class="demo-label">Backstage</div>
+                <div class="box-demo" style="background:#fff;border-color:#aaa;">Action</div>
+            </div>
+            
+            <div class="demo-row">
+                <div class="demo-label">Support</div>
+                <div class="box-demo" style="background:#f3f3f3;border-color:#999;">System</div>
+            </div>
+            
+            <div class="demo-row">
+                <div class="demo-label">Muted/Inactive</div>
+                <div class="box-demo" style="background:#f5f5f5;border-color:#aaa;border-style:dashed;color:#666;">N/A</div>
+            </div>
+        </div>
+        
+        <!-- Domain Badges -->
+        <div class="reference-card">
+            <h3>Domain Badges</h3>
+            
+            <div class="demo-row">
+                <div class="demo-label">Variant A</div>
+                <div class="badge-demo" style="background:#dbeafe;color:#1e40af;">A</div>
+            </div>
+            
+            <div class="demo-row">
+                <div class="demo-label">Variant B</div>
+                <div class="badge-demo" style="background:#fef3c7;color:#92400e;">B</div>
+            </div>
+            
+            <div class="demo-row">
+                <div class="demo-label">Usage</div>
+                <div class="demo-visual">
+                    <div class="box-demo" style="background:#fff;border-color:#aaa;">
+                        Action <span class="badge-demo" style="background:#dbeafe;color:#1e40af;font-size:7px;">A</span>
+                    </div>
+                </div>
+            </div>
+            <p class="usage-note">For comparing service variants side-by-side</p>
+        </div>
+        
+        <!-- Time -->
+        <div class="reference-card">
+            <h3>Time Row</h3>
+            
+            <div class="demo-row">
+                <div class="demo-label">Single duration</div>
+                <div style="font-size:10px;color:#666;font-style:italic;">1-2 days</div>
+            </div>
+            
+            <div class="demo-row">
+                <div class="demo-label">With variants</div>
+                <div style="font-size:10px;color:#666;font-style:italic;line-height:1.4;">
+                    5-20 days <span class="badge-demo" style="background:#dbeafe;color:#1e40af;font-size:6px;">A</span><br>
+                    30-60 days <span class="badge-demo" style="background:#fef3c7;color:#92400e;font-size:6px;">B</span>
+                </div>
+            </div>
+            <p class="usage-note">Always include time estimates per phase</p>
+        </div>
+        
+    </div>
+    
+    <h2 style="font-size:14px;margin-top:40px;margin-bottom:15px;">Arrow Sizing Specification</h2>
+    
+    <table style="font-size:10px;border-collapse:collapse;width:100%;">
+        <thead>
+            <tr style="background:#f0f0f0;">
+                <th style="padding:8px;text-align:left;border:1px solid #ddd;">Element</th>
+                <th style="padding:8px;text-align:left;border:1px solid #ddd;">Property</th>
+                <th style="padding:8px;text-align:left;border:1px solid #ddd;">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding:8px;border:1px solid #ddd;">Horizontal stem</td>
+                <td style="padding:8px;border:1px solid #ddd;">width</td>
+                <td style="padding:8px;border:1px solid #ddd;">10px</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;border:1px solid #ddd;">Vertical stem</td>
+                <td style="padding:8px;border:1px solid #ddd;">height</td>
+                <td style="padding:8px;border:1px solid #ddd;">12px</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;border:1px solid #ddd;">All stems</td>
+                <td style="padding:8px;border:1px solid #ddd;">stroke</td>
+                <td style="padding:8px;border:1px solid #ddd;">1.5px solid #999</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;border:1px solid #ddd;">Arrowhead</td>
+                <td style="padding:8px;border:1px solid #ddd;">border (triangle)</td>
+                <td style="padding:8px;border:1px solid #ddd;">4px transparent sides, 6px solid base</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;border:1px solid #ddd;">Marker circles</td>
+                <td style="padding:8px;border:1px solid #ddd;">size</td>
+                <td style="padding:8px;border:1px solid #ddd;">10px × 10px</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

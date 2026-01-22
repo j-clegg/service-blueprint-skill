@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Blueprint - Minimal Example</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <h1>Service Blueprint: <span>Coffee Shop Order</span></h1>
+    <p class="subtitle">Minimal 3-phase example demonstrating core blueprint structure</p>
+    
+    <div class="blueprint blueprint-3col">
+        
+        <!-- Phase Headers -->
+        <div class="phase-title empty"></div>
+        <div class="phase-title">1. ORDER</div>
+        <div class="phase-title">2. PREPARE</div>
+        <div class="phase-title">3. DELIVER</div>
+        
+        <!-- Time Row -->
+        <div class="layer-label">TIME</div>
+        <div class="time-cell">1-2 min</div>
+        <div class="time-cell">3-5 min</div>
+        <div class="time-cell">30 sec</div>
+        
+        <!-- Physical Evidence -->
+        <div class="layer-label">PHYSICAL<br>EVIDENCE</div>
+        <div class="cell">
+            <div class="box evidence">Menu board</div>
+            <div class="box evidence">POS terminal</div>
+            <div class="h-arrow"><div class="stem"></div><div class="head"></div></div>
+        </div>
+        <div class="cell">
+            <div class="box evidence">Order ticket</div>
+            <div class="box evidence">Coffee machine</div>
+            <div class="h-arrow"><div class="stem"></div><div class="head"></div></div>
+        </div>
+        <div class="cell">
+            <div class="box evidence">Branded cup</div>
+            <div class="box evidence">Receipt</div>
+        </div>
+        
+        <!-- Customer Actions -->
+        <div class="layer-label">CUSTOMER<br>ACTIONS</div>
+        <div class="cell">
+            <div class="box customer">Review menu<span class="mot">★</span></div>
+            <div class="box customer">Place order</div>
+            <div class="box customer">Pay</div>
+            <div class="h-arrow"><div class="stem"></div><div class="head"></div></div>
+        </div>
+        <div class="cell">
+            <div class="box customer">Wait</div>
+            <div class="h-arrow"><div class="stem"></div><div class="head"></div></div>
+        </div>
+        <div class="cell">
+            <div class="box customer">Collect drink<span class="mot">★</span></div>
+            <div class="box customer">Leave</div>
+        </div>
+        
+        <!-- Line of Interaction -->
+        <div class="divider">
+            <div class="divider-label">line of interaction</div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <!-- Frontstage Actions -->
+        <div class="layer-label">FRONTSTAGE<br>ACTIONS</div>
+        <div class="cell">
+            <div class="v-arrow"><div class="stem"></div><div class="head"></div></div>
+            <div class="box frontstage">Greet customer<span class="mot">★</span></div>
+            <div class="box frontstage">Take order</div>
+            <div class="box frontstage">Process payment</div>
+            <div class="h-arrow"><div class="stem"></div><div class="head"></div></div>
+        </div>
+        <div class="cell">
+            <div class="v-arrow"><div class="stem"></div><div class="head"></div></div>
+            <div class="box frontstage">Call name when ready</div>
+            <div class="h-arrow"><div class="stem"></div><div class="head"></div></div>
+        </div>
+        <div class="cell">
+            <div class="v-arrow"><div class="stem"></div><div class="head"></div></div>
+            <div class="box frontstage">Hand over drink</div>
+            <div class="box frontstage">Thank customer</div>
+        </div>
+        
+        <!-- Line of Visibility -->
+        <div class="divider">
+            <div class="divider-label">line of visibility</div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <!-- Backstage Actions -->
+        <div class="layer-label">BACKSTAGE<br>ACTIONS</div>
+        <div class="cell">
+            <div class="v-arrow"><div class="stem"></div><div class="head"></div></div>
+            <div class="box backstage">Print ticket</div>
+            <div class="h-arrow"><div class="stem"></div><div class="head"></div></div>
+        </div>
+        <div class="cell">
+            <div class="v-arrow"><div class="stem"></div><div class="head"></div></div>
+            <div class="box backstage">Pull espresso shot<span class="fail">!</span></div>
+            <div class="box backstage">Steam milk</div>
+            <div class="box backstage">Assemble drink</div>
+            <div class="h-arrow"><div class="stem"></div><div class="head"></div></div>
+        </div>
+        <div class="cell">
+            <div class="v-arrow"><div class="stem"></div><div class="head"></div></div>
+            <div class="box backstage">Quality check</div>
+        </div>
+        
+        <!-- Line of Internal Interaction -->
+        <div class="divider">
+            <div class="divider-label">internal interaction</div>
+            <div class="divider-line"></div>
+        </div>
+        
+        <!-- Support Processes -->
+        <div class="layer-label">SUPPORT<br>PROCESSES</div>
+        <div class="cell">
+            <div class="v-arrow"><div class="stem"></div><div class="head"></div></div>
+            <div class="box support">POS system</div>
+            <div class="box support">Payment gateway</div>
+            <div class="h-arrow"><div class="stem"></div><div class="head"></div></div>
+        </div>
+        <div class="cell">
+            <div class="v-arrow"><div class="stem"></div><div class="head"></div></div>
+            <div class="box support">Coffee machine</div>
+            <div class="box support">Bean supply<span class="fail">!</span></div>
+            <div class="h-arrow"><div class="stem"></div><div class="head"></div></div>
+        </div>
+        <div class="cell">
+            <div class="v-arrow"><div class="stem"></div><div class="head"></div></div>
+            <div class="box support">Cup inventory</div>
+        </div>
+        
+    </div>
+    
+    <!-- Legend -->
+    <div class="legend">
+        <div class="legend-section">
+            <h4>Lanes</h4>
+            <div class="legend-item">
+                <div class="legend-swatch" style="background:#fff9e6;border-color:#c9a227;"></div>
+                <span>Customer-facing</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-swatch" style="background:#fff;border-color:#aaa;"></div>
+                <span>Internal actions</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-swatch" style="background:#f3f3f3;border-color:#999;"></div>
+                <span>Support processes</span>
+            </div>
+        </div>
+        
+        <div class="legend-section">
+            <h4>Arrows</h4>
+            <div class="legend-item">
+                <div class="legend-arrow"><div class="stem"></div><div class="head"></div></div>
+                <span>One-way handoff</span>
+            </div>
+        </div>
+        
+        <div class="legend-section">
+            <h4>Markers</h4>
+            <div class="legend-item">
+                <div class="legend-mot">★</div>
+                <span>Moment of truth</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-fail">!</div>
+                <span>Failure point</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
